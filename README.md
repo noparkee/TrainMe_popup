@@ -31,5 +31,5 @@ test trainMe pop-up
 4. 트레이너A가 작성한 가격 협의 가능 여부와 코멘트가 팝업창으로 뜬다.
 (코드 상에서는 view proposal을 눌렀을 때는 트레이너A id로 고정. 이 부분도 나중에 리스트뷰를 터치했으면 가져오는 걸로 바꿔야함.)
 
-![trainerprofile](./image/5.PNG)
+![trainerprofile](./image/5.PNG)   
 5. 마음에 들지 않으면 뒤로가기를 누르고, 마음에 든다면 더보기를 누르면 트레이너A의 프로필을 볼 수 있다.
