@@ -34,8 +34,28 @@ public class MainActivity extends AppCompatActivity {
         trainer.setOnClickListener(new View.OnClickListener(){      // 트레이너가 유저 프로필에서 보내기 버튼을 눌렀을 때의 팝업창
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CustomDialog.class);
-                startActivity(intent);
+                // 여기서는 선택한 유저의 id를 같이 넘겨줘야함
+                // UI같은 곳에서 선택된 유저의 id를 알아올 수 있도록
+                userID = "id001";
+
+                databaseReference.child("User").child(userID).child("/profile/name").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String userName = snapshot.getValue().toString();
+
+                        Intent intent = new Intent(MainActivity.this, CustomDialog.class);
+                        intent.putExtra("userId", userID);
+                        intent.putExtra("username", userName);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
             }
         });
 
@@ -48,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 // --- 선택한 트레이너의 아이디를 알아오는 함수 ---
                 // 여기서 trainerID를 찾아냄.
                 trainerID = "tid001";
-                System.out.println("click btn");
 
                 // 추가 메세지 (가격, 코멘트)
                 databaseReference.child("User").child(userID).child("fromTrainer").child(trainerID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -66,8 +85,9 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("trainername", trainerName);
                                 intent.putExtra("price", proposal.price);
                                 intent.putExtra("message", proposal.message);
+                                intent.putExtra("perweek", proposal.perweek);
+                                intent.putExtra("total", proposal.total);
                                 intent.putExtra("trainerId", trainerID);
-                                System.out.println(trainerID);
                                 startActivity(intent);
                             }
 

@@ -10,8 +10,10 @@
       },
       "toUser" : {
         "id001" : {
-          "message" : " I am a good trainer !",
-          "price" : "45000"
+          "message" : "Hello! I am 'trainer A'.",
+          "perweek" : "3",
+          "price" : "0",
+          "total" : "35"
         }
       }
     },
@@ -28,8 +30,10 @@
     "id001" : {
       "fromTrainer" : {
         "tid001" : {
-          "message" : " I am a good trainer !",
-          "price" : "45000"
+          "message" : "Hello! I am 'trainer A'.",
+          "perweek" : "3",
+          "price" : "0",
+          "total" : "35"
         }
       },
       "profile" : {
@@ -40,8 +44,6 @@
       }
     },
     "id002" : {
-      "age" : "30대",
-      "name" : "유저B",
       "profile" : {
         "age" : "30대",
         "name" : "유저B",
